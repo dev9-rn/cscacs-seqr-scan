@@ -1,4 +1,4 @@
-package com.demoseqrscan.newarchitecture;
+package com.demoseqr.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.demoseqrscan.BuildConfig;
-import com.demoseqrscan.newarchitecture.components.MainComponentsRegistry;
-import com.demoseqrscan.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.demoseqr.BuildConfig;
+import com.demoseqr.newarchitecture.components.MainComponentsRegistry;
+import com.demoseqr.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

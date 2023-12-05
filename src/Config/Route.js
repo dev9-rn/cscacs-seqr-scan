@@ -24,6 +24,9 @@ import InstituteCertificateAndPrint from '../Components/InstituteComponents/Inst
 import StudentLoginScreen from '../Components/StudentComponents/StudentLoginScreen';
 import StudentSignupScreen from '../Components/StudentComponents/StudentSignupScreen';
 import OTPVerificationForStudent from '../Components/StudentComponents/OTPVerificationForStudent';
+import RemoveAccount from '../Components/RemoveAccount';
+import CertificateViewScreen from '../Components/VerifierComponents/CertificateViewScreen';
+import CertificateViewScreen1 from '../Components/VerifierComponents/CertificateViewScreen1';
 
 
 const MainNavigator = createStackNavigator({
@@ -35,7 +38,10 @@ const MainNavigator = createStackNavigator({
     HomeScreen: { screen: HomeScreen, navigationOptions: { header: null } },
     OTPVerification: { screen: OTPVerification, navigationOptions: { header: null } },
     AboutUs: { screen: AboutUs, navigationOptions: { header: null } },
+    RemoveAccount: { screen: RemoveAccount, navigationOptions: { header: null } },
     VerifierScanScreen: { screen: VerifierScanScreen, navigationOptions: { header: null } },
+    CertificateViewScreen: { screen: CertificateViewScreen, navigationOptions: { header: null } },
+    CertificateViewScreen1: { screen: CertificateViewScreen1, navigationOptions: { header: null } },
     RequestVerification: { screen: RequestVerification, navigationOptions: { header: null } },
     PricesTable: { screen: PricesTable, navigationOptions: { header: null } },
     VerifierStatusScreen: { screen: VerifierStatusScreen, navigationOptions: { header: null } },

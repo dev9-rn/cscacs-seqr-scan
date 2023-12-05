@@ -16,7 +16,7 @@ export default class HomeScreen extends Component {
 				<StatusBar backgroundColor="#0000FF" />
 				<View style={{ flex: 1 }}>
 					<View style={styles.containerLevel1}>
-						<Text style={{ textAlign: 'center', fontSize: 20, fontFamily: 'Roboto' }}>
+						<Text style={{ textAlign: 'center', fontSize: 20}}>
 							<Text style={{ color: '#0000FF' }}>Demo </Text>
 							<Text style={{ color: '#7b8fb7' }}>SeQR SCAN </Text>
 						</Text>
@@ -32,6 +32,7 @@ export default class HomeScreen extends Component {
 						</View>
 					</TouchableOpacity> */}
 
+					{/* <TouchableOpacity onPress={() => this._onPressButton('VerifierLoginScreen')}> */}
 					<TouchableOpacity onPress={() => this._onPressButton('VerifierLoginScreen')}>
 						<View style={styles.buttonVerifier}>
 							<Text style={{ color: '#ffffff', padding: 12, fontWeight: 'bold' }}>SIGN IN AS VERIFIER</Text>

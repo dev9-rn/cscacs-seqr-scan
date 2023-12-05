@@ -1,4 +1,4 @@
-package com.demoseqrscan;
+package com.demoseqr;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

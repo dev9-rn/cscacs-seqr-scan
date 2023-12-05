@@ -1,4 +1,4 @@
-package com.demoseqrscan.newarchitecture.modules;
+package com.demoseqr.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;

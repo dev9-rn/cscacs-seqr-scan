@@ -29,15 +29,23 @@ class InstituteMainScreen extends Component {
 	componentWillUnmount() { BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress); }
 	handleBackPress = () => {
 		Alert.alert(
-			'LOGOUT',
-			'Are you sure you want to logout.',
-			[
-				{ text: 'NO' },
-				{ text: 'YES', onPress: () => this._callForLogoutAPI() },
-			],
+			"Closing Activity",
+			"Are you sure you want to close this activity?",
+			[{ text: "NO" }, { text: "YES", onPress: () => BackHandler.exitApp() }],
 			{ cancelable: false }
 		);
+	  
 		return true;
+		// Alert.alert(
+		// 	'LOGOUT',
+		// 	'Are you sure you want to logout.',
+		// 	[
+		// 		{ text: 'NO' },
+		// 		{ text: 'YES', onPress: () => this._callForLogoutAPI() },
+		// 	],
+		// 	{ cancelable: false }
+		// );
+		// return true;
 	}
 	closeActivityIndicator() { setTimeout(() => { this.setState({ loading: false }); }); }
 	async _getAsyncData() {

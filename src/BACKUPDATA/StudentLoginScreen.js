@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StatusBar, BackHandler, Dimensions, Platform, StyleSheet, View, TouchableOpacity, Modal, Image } from 'react-native';
+import { StatusBar, BackHandler, Dimensions, Platform, StyleSheet, View, TouchableOpacity, Modal, Image, ScrollView } from 'react-native';
 import { Header, Left, Body, Content, Card, CardItem, Text, Title, Icon, Toast, Form, Item, Input, Button, Label } from 'native-base';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import Loader from '../../Utilities/Loader';
@@ -219,7 +219,7 @@ class StudentLoginScreen extends Component {
                 <StatusBar backgroundColor="#0000FF" />
                 <Loader loading={this.state.loading} text={this.state.loaderText} />
                 <View style={styles.loginViewContainer}>
-                    <KeyboardAwareScrollView keyboardShouldPersistTaps={'handled'}>
+                    <ScrollView keyboardShouldPersistTaps="always">
                         <Card style={styles.cardContainer}>
                             <CardItem header style={styles.cardHeader}>
                                 <Text style={{ marginLeft: -12, color: '#212121', fontWeight: 'normal', fontSize: 18 }}>Student Login</Text>
@@ -385,7 +385,7 @@ class StudentLoginScreen extends Component {
                                 </Content>
                             </View>
                         </Card>
-                    </KeyboardAwareScrollView>
+                    </ScrollView>
                 </View>
             </View>
         )

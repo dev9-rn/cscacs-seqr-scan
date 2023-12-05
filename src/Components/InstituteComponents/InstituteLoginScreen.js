@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BackHandler, StatusBar, Dimensions, Platform, StyleSheet, View, TextInput, TouchableOpacity } from 'react-native';
+import { BackHandler, StatusBar, Dimensions, Platform, StyleSheet, View, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import { Header, Left, Body, Card, CardItem, Text, Title, Icon, Toast } from 'native-base';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import Loader from '../../Utilities/Loader';
@@ -86,8 +86,11 @@ class InstituteLoginScreen extends Component {
 						this.showToastMsg('Wrong login credentials! Please check and try again');
 					} else if (lResponseData.status == '200') {
 						this.showToastMsg('Logged in successfully.');
+						console.log('======== institute' , JSON.stringify(lResponseData,null,2))
 						try {
-							lResponseData.password = this.state.password
+							lResponseData.password = this.state.password;
+							lResponseData.status = '1';
+							lResponseData.username = this.state.username;
 							AsyncStorage.setItem('InstituteData', JSON.stringify(lResponseData))
 							this.props.navigation.navigate('InstituteMainScreen')
 						} catch (error) {
@@ -175,7 +178,7 @@ class InstituteLoginScreen extends Component {
 				</View> */}
 
 				<View style={styles.loginViewContainer}>
-					<KeyboardAwareScrollView keyboardShouldPersistTaps={'handled'}>
+					<ScrollView keyboardShouldPersistTaps="always">
 						<Card style={styles.cardContainer}>
 							<CardItem header style={styles.cardHeader}>
 								<Text style={{ marginLeft: -12, color: '#212121', fontWeight: 'normal', fontSize: 18 }}>Login</Text>
@@ -234,7 +237,7 @@ class InstituteLoginScreen extends Component {
 								</TouchableOpacity>
 							</View>
 						</Card>
-					</KeyboardAwareScrollView>
+					</ScrollView>
 				</View>
 			</View>
 		)

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StatusBar, BackHandler, Dimensions, Platform, TextInput, StyleSheet, View, TouchableOpacity, Image, Button,  } from 'react-native';
+import { StatusBar, BackHandler, Dimensions, Platform, TextInput, StyleSheet, View, TouchableOpacity, Image, Button, ScrollView,  } from 'react-native';
 import { Header, Left, Body, Content, Card, CardItem, Text, Title, Icon, Toast, Form, Item, Input,Label, Right } from 'native-base';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import Loader from '../../Utilities/Loader';
@@ -151,7 +151,7 @@ class VerifierLoginScreen extends Component {
 		formData.append('password', this.state.password);
 		formData.append('user_type', 1);
 		console.log(formData);
-		fetch(`${URL}login`, {
+		fetch(`${URL}user-login`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'multipart\/form-data',
@@ -159,7 +159,7 @@ class VerifierLoginScreen extends Component {
 			},
 			body: formData,
 		}).then(res => {
-			res.json().then(response => {
+			res.json().then(async response => {
 				console.log(res.headers.map.accesstoken);
 				this.setState({ loading: false, accessToken: res.headers.map.accesstoken })
 				console.log("--");
@@ -167,6 +167,9 @@ class VerifierLoginScreen extends Component {
 				console.log("Verifier response:",response);
 				if (response.status == 200) {
 					var response = response.data;
+					// console.log(JSON.stringify(response,null,2));
+					await AsyncStorage.setItem('USERDATA', JSON.stringify(response));
+					console.log('======== verifier' , JSON.stringify(response,null,2))
 					AsyncStorage.setItem('accessToken', this.state.accessToken)
 					response.accessToken = this.state.accessToken
 
@@ -236,7 +239,7 @@ class VerifierLoginScreen extends Component {
 				<StatusBar backgroundColor="#0000FF" />
 				<Loader loading={this.state.loading} text={this.state.loaderText} />
 				<View style={styles.loginViewContainer}>
-					<KeyboardAwareScrollView keyboardShouldPersistTaps={'handled'}>
+					<ScrollView keyboardShouldPersistTaps="always">
 						<Card style={styles.cardContainer}>
 							<CardItem header style={styles.cardHeader}>
 								<Text style={{ marginLeft: -12, color: '#212121', fontWeight: 'normal', fontSize: 18 }}>Login</Text>
@@ -442,7 +445,7 @@ class VerifierLoginScreen extends Component {
 								</Content>
 							</View>
 						</Card>
-					</KeyboardAwareScrollView>
+					</ScrollView>
 				</View>
 			</View>
 		)

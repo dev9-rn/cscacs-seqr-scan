@@ -77,6 +77,10 @@ class VerifierScanHistoryDetails extends Component {
                 console.log(error);
             });
     }
+    _removeAccount(){
+        // utilities.showToastMsg("Account removed successfully");
+        this.props.navigation.navigate('RemoveAccount'); 
+    }
     _showHeader() {
         if (Platform.OS == 'ios') {
             return (
@@ -98,6 +102,9 @@ class VerifierScanHistoryDetails extends Component {
                                 <MenuOptions>
                                     <MenuOption onSelect={() => this._aboutUs()} style={{ padding: 15 }}>
                                         <Text style={{ color: 'black' }}>About us</Text>
+                                    </MenuOption>
+                                    <MenuOption onSelect={() => this._removeAccount()} style={{ padding: 15 }}>
+                                        <Text style={{ color: 'red' }}>Remove Account</Text>
                                     </MenuOption>
                                     <MenuOption onSelect={() => this._callForLogoutAPI()} style={{ padding: 15 }} >
                                         <Text style={{ color: 'black' }}>Logout</Text>
@@ -128,6 +135,9 @@ class VerifierScanHistoryDetails extends Component {
                                 <MenuOptions>
                                     <MenuOption onSelect={() => this._aboutUs()} style={{ padding: 15 }}>
                                         <Text style={{ color: 'black' }}>About us</Text>
+                                    </MenuOption>
+                                    <MenuOption onSelect={() => this._removeAccount()} style={{ padding: 15 }}>
+                                        <Text style={{ color: 'red' }}>Remove Account</Text>
                                     </MenuOption>
                                     <MenuOption onSelect={() => this._callForLogoutAPI()} style={{ padding: 15 }} >
                                         <Text style={{ color: 'black' }}>Logout</Text>

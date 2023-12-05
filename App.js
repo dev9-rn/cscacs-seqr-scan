@@ -34,5 +34,10 @@ export const URLFORINSTITUTE = "https://demo.seqrdoc.com/api/";
 
 export const APIKEY = "GSka~2nu@D,knVOfz{+/RL1WMF{bka";
 export const INSTITUTE_NAME = 'Monad University';
-
+export var scanQRData = [];
+export var scanSeQRData = [];
+export var ISNETCONNECTED = true;
+export function setValue(newValue: Boolean) {
+  ISNETCONNECTED = newValue;
+}
 export const APPNAME = "Demo SeQR Scan";

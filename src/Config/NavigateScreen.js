@@ -37,8 +37,9 @@ class NavigateScreen extends Component {
         });
         AsyncStorage.getItem('InstituteData', (err, result) => {
             var lData = JSON.parse(result);
-            console.log(lData);
+            console.log('=======lData',lData);
             if (lData) {
+                console.log(lData)
                 this.setState({ status: lData.status, userName: lData.username, password: lData.password });
                 this.submitPressed();
             } else {
@@ -61,7 +62,7 @@ class NavigateScreen extends Component {
 
             // AsyncStorage.setItem('USERDATA', { username: this.state.username, password: this.state.password })
             console.log(formData);
-            fetch(`${URL}login`, {
+            fetch(`${URL}user-login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'multipart\/form-data',
@@ -98,8 +99,8 @@ class NavigateScreen extends Component {
             // formData.append('lat', '');
             // formData.append('long', '');
             console.log(formData);
-
-            fetch(`${this.state.urlForInstitute}institute-login`, {
+            var lUrl = URLFORINSTITUTE + 'institute-login'
+            fetch(lUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'multipart\/form-data',
@@ -109,10 +110,12 @@ class NavigateScreen extends Component {
             }).then(res => res.json())
                 .then(lResponseData => {
                     this.setState({ loading: false })
-                    console.log(lResponseData);
-                    if (lResponseData.status == '1') {
+                    console.log('==lResponseData',lResponseData);
+                    if (lResponseData.status == 200) {
                         try {
-                            lResponseData.password = this.state.password
+                            lResponseData.password = this.state.password;
+							lResponseData.status = '1';
+							lResponseData.username = this.state.username;
                             AsyncStorage.setItem('InstituteData', JSON.stringify(lResponseData));
                             this.props.navigation.navigate('InstituteMainScreen');
                         } catch (error) {

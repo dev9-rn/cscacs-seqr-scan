@@ -147,11 +147,11 @@ android {
        pickFirst 'lib/armeabi-v7a/libc++_shared.so'
     }
     defaultConfig {
-        applicationId "com.demoseqrscan"
+        applicationId "com.demoseqr"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 4194309
-        versionName "2.0"
+        versionCode 6
+        versionName "1.5.1"
         missingDimensionStrategy 'react-native-camera', 'general'
         multiDexEnabled true
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()

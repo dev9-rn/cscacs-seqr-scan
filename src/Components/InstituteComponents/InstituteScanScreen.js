@@ -54,9 +54,9 @@ export default class InstituteScanScreen extends Component {
 			console.log(result);
 			if (lData) {
 				this.setState({ userName: lData.data.institute_username,sessionKey: lData.accesstoken, userId: lData.data.id });
+				console.log('scan scrren data',JSON.stringify({ userName: lData.data.institute_username,sessionKey: lData.accesstoken, userId: lData.data.id }),null,2)
 			}
 		});
-
 		AsyncStorage.getItem('InstituteURL', (err, result) => {
 			this.setState({ urlForInstitute: result })
 		});
@@ -101,7 +101,7 @@ export default class InstituteScanScreen extends Component {
 		formData.append('device_type', Platform.OS);
 		formData.append('scanned_by', lUserName);
 		formData.append("user_id", this.state.userId)
-		console.log(formData);
+		console.log("======formData",formData);
 		var lUrl = URLFORINSTITUTE + 'nidan/scan-certificate'
 		fetch(lUrl, {
 			method: 'POST',

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StatusBar, BackHandler, Platform, StyleSheet, View, TouchableOpacity } from 'react-native';
+import { StatusBar, BackHandler, Platform, StyleSheet, View, TouchableOpacity, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Header, Left, Body, Content, Card, CardItem, Text, Title, Item, Label, Input, Icon, Form } from 'native-base';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
@@ -428,7 +428,7 @@ class StudentSignupScreen extends Component {
                 />
 
                 <View style={styles.signUpViewContainer}>
-                    <KeyboardAwareScrollView keyboardShouldPersistTaps={'handled'}>
+                    <ScrollView keyboardShouldPersistTaps="always">
                         <Card style={styles.cardContainer}>
 
                             <CardItem header style={styles.cardHeader}>
@@ -622,7 +622,7 @@ class StudentSignupScreen extends Component {
                                 </Form>
                             </Content>
                         </Card>
-                    </KeyboardAwareScrollView>
+                    </ScrollView>
                 </View>
             </View >
         )

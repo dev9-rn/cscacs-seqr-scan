@@ -9,7 +9,7 @@
 #if RCT_NEW_ARCH_ENABLED
 #import <React/CoreModulesPlugins.h>
 #import <React/RCTCxxBridgeDelegate.h>
-#import <React/RCTFabricSurfaceHostingProxyRootView.h>
+#import <React/RCTFabricSurfaceHostingPr/Users/bhavinshah/Documents/Workspace/ReactNativeProjects/DemoSeQRDoc/ios/Pods/Pods.xcodeprojoxyRootView.h>
 #import <React/RCTSurfacePresenter.h>
 #import <React/RCTSurfacePresenterBridgeAdapter.h>
 #import <ReactCommon/RCTTurboModuleManager.h>

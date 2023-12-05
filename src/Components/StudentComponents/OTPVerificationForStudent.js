@@ -234,7 +234,7 @@ class OTPVerificationForStudent extends Component {
                 />
 
                 <View style={styles.OTPViewContainer}>
-                    <KeyboardAwareScrollView keyboardShouldPersistTaps={'handled'}>
+                    <ScrollView keyboardShouldPersistTaps="always">
                         <Card style={styles.cardContainer}>
 
                             <CardItem header style={styles.cardHeader}>
@@ -272,7 +272,7 @@ class OTPVerificationForStudent extends Component {
                             </Content>
 
                         </Card>
-                    </KeyboardAwareScrollView>
+                    </ScrollView>
                 </View>
             </View>
         )

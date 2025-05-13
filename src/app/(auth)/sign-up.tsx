@@ -1,5 +1,5 @@
 import { KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
@@ -8,6 +8,9 @@ import { Controller, FieldValues, SubmitHandler, useForm } from 'react-hook-form
 import { KeyboardAwareScrollView, KeyboardToolbar } from 'react-native-keyboard-controller';
 import axiosInstance from '@/utils/axiosInstance'
 import { VERIFIER_SIGNUP } from '@/utils/routes'
+import { useToast } from 'react-native-toast-notifications'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import { Label } from '@/components/ui/label'
 
 type Props = {}
 
@@ -18,11 +21,27 @@ type SignUpForm = {
     userName: string;
     userNewPassword: string;
     userConfirmPassword: string;
-}
+};
+
+const VERIFICATION_TYPE = [
+    {
+        id: 1,
+        label: "OTP",
+        type: 1
+    },
+    {
+        id: 2,
+        label: "Email",
+        type: 2
+    }
+]
 
 const SignUpScreen = ({ }: Props) => {
 
+    const [currentVerificationType, setCurrentVerificationType] = useState<{ id: number, label: string, type: number }>(VERIFICATION_TYPE[0]);
+
     const inset = useSafeAreaInsets();
+    const toast = useToast();
 
     const { control, handleSubmit, formState: { errors } } = useForm<SignUpForm>({
         defaultValues: {
@@ -41,11 +60,26 @@ const SignUpScreen = ({ }: Props) => {
 
         signUpFormData.append('type', 'register');
         signUpFormData.append('registration_type', '0');
+        signUpFormData.append('username', formData.userName);
+        signUpFormData.append('fullname', formData.userFullName);
+        signUpFormData.append('password', formData.userNewPassword);
+        signUpFormData.append('email_id', formData.userEmail);
+        signUpFormData.append('mobile_no', formData.userPhone);
+        signUpFormData.append('verify_by', currentVerificationType.type.toString());
 
         try {
+            const pendingToastId = toast.show("Registering user... Please wait", { data: { status: "pending" } })
             const response = await axiosInstance.post(VERIFIER_SIGNUP, signUpFormData);
 
-            console.log(response.data, "SIGN_UP_RES");
+            if (response.data.status !== 200) {
+                toast.show(response.data.message, {
+                    data: response.data
+                });
+            };
+
+            toast.update(pendingToastId, response.data.message);
+            toast.hide(pendingToastId);
+
         } catch (error) {
             console.log(error);
         };
@@ -186,6 +220,42 @@ const SignUpScreen = ({ }: Props) => {
                                         />
                                     )}
                                 />
+                            </View>
+
+                            <View className='gap-4'>
+                                <Text className='signUpFormText'>Verification: </Text>
+
+                                <RadioGroup
+                                    value={currentVerificationType.type.toString()}
+                                    onValueChange={(value) => {
+                                        const selectedType = VERIFICATION_TYPE.find(
+                                            (verification) => verification.type.toString() === value
+                                        );
+                                        if (selectedType) {
+                                            setCurrentVerificationType(selectedType);
+                                        }
+                                    }}
+                                >
+                                    <View className='flex-row items-center gap-2 justify-around'>
+                                        {VERIFICATION_TYPE.map((verification) => (
+                                            <View
+                                                key={verification.id}
+                                                className='flex-row items-center gap-2'
+                                            >
+                                                <RadioGroupItem
+                                                    aria-labelledby={`label-for-${verification.type.toString()}`}
+                                                    value={verification.type.toString()}
+                                                />
+                                                <Label
+                                                    nativeID={`label-for-${verification.label}`}
+                                                    onPress={() => setCurrentVerificationType(verification)}
+                                                >
+                                                    {verification.label}
+                                                </Label>
+                                            </View>
+                                        ))}
+                                    </View>
+                                </RadioGroup>
                             </View>
                         </View>
                     </>

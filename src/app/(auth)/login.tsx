@@ -13,6 +13,7 @@ import { INSTITUE_LOGIN, VERIFIER_LOGIN } from '@/utils/routes'
 import useAuth from '@/hooks/useAuth'
 import useUser from '@/hooks/useUser'
 import ForgotPasswordDialog from '@/components/ForgotPasswordDialog'
+import { useToast } from 'react-native-toast-notifications'
 
 type Props = {}
 
@@ -34,6 +35,8 @@ const LoginScreen = ({ }: Props) => {
     const [isUserNameFocused, setIsUserNameFocused] = useState<boolean>(false);
     const [isPasswordFocused, setIsPasswordFocused] = useState<boolean>(false);
 
+    const toast = useToast();
+
     const { control, handleSubmit, setError, formState: { errors, isValid, } } = useForm<FormData>({
         mode: "onChange", // Enables real-time validation updates
         defaultValues: {
@@ -53,6 +56,13 @@ const LoginScreen = ({ }: Props) => {
                 loginBody
             );
             if (!response.data?.success) {
+                if (response.data?.message.length > 50) {
+                    toast.show(response.data.message, {
+                        data: response.data
+                    });
+                    return;
+                };
+                
                 setError("userName", {
                     type: "custom",
                     message: response.data?.message,

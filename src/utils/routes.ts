@@ -4,6 +4,9 @@ export const INSTITUE_LOGIN = "/institute-login"
 export const SCAN_INSTITUTE_CERT = "/nidan/scan-certificate"
 export const SCAN_VERIFIER_CERT = "/scan"
 export const GET_SCAN_HISTORY = "/scan-history"
-export const VERIFIER_SIGNUP = "/verify/registration"
 export const VERIFIER_RESET_PASSWORD = "/passwordReset"
 export const USER_LOGOUT = "/logout"
+
+
+// VERIFIER API ROUTES
+export const VERIFIER_SIGNUP = "/user-register"

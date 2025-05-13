@@ -1,4 +1,4 @@
-import { Slot, Stack } from "expo-router";
+import { Stack } from "expo-router";
 import AuthProvider from "@/providers/AuthProvider";
 import { PortalHost } from '@rn-primitives/portal';
 import UserProvider from "@/providers/UserProvider";
@@ -7,6 +7,7 @@ import { KeyboardProvider } from 'react-native-keyboard-controller';
 
 import "@/app/globals.css";
 import ToastNotification from "@/components/ToastNotification";
+import { ThemeProvider, DarkTheme } from "@react-navigation/native";
 
 if (__DEV__) {
 	require("../../ReactotronConfig");
@@ -15,7 +16,7 @@ if (__DEV__) {
 export default function RootLayout() {
 
 	return (
-		<>
+		<ThemeProvider value={DarkTheme}>
 			<UserProvider>
 				<AuthProvider>
 					<KeyboardProvider>
@@ -41,6 +42,6 @@ export default function RootLayout() {
 				</AuthProvider>
 			</UserProvider >
 			<PortalHost />
-		</>
+		</ThemeProvider>
 	);
 }

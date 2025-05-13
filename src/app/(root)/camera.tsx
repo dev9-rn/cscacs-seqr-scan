@@ -132,7 +132,7 @@ const CameraScreen = ({ }: Props) => {
                 {isFetchingScannedData && (
                     <View className='absolute top-3/4 self-center items-center flex-row'>
                         <Text className='text-white bg-black/40 p-4 rounded-lg'>
-                            Scanning your barcode data. Please wait...
+                            Scanning your {scanner_type} data. Please wait...
                         </Text>
                     </View>
                 )}

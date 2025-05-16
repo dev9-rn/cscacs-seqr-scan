@@ -62,7 +62,7 @@ const LoginScreen = ({ }: Props) => {
                     });
                     return;
                 };
-                
+
                 setError("userName", {
                     type: "custom",
                     message: response.data?.message,

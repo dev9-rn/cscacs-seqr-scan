@@ -11,6 +11,7 @@ import { VERIFIER_SIGNUP } from '@/utils/routes'
 import { useToast } from 'react-native-toast-notifications'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Label } from '@/components/ui/label'
+import { router } from 'expo-router'
 
 type Props = {}
 
@@ -72,13 +73,22 @@ const SignUpScreen = ({ }: Props) => {
             const response = await axiosInstance.post(VERIFIER_SIGNUP, signUpFormData);
 
             if (response.data.status !== 200) {
-                toast.show(response.data.message, {
+                toast.update(pendingToastId, response.data.message, {
                     data: response.data
                 });
+                return;
             };
 
             toast.update(pendingToastId, response.data.message);
             toast.hide(pendingToastId);
+            if (currentVerificationType.type === 1) {
+                router.replace({
+                    pathname: "/otp-verify",
+                    params: {
+                        userPhone: formData.userPhone,
+                    }
+                });
+            };
 
         } catch (error) {
             console.log(error);

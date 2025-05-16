@@ -10,5 +10,6 @@ export const SCAN_VERIFIER_CERT = "/scan";
 export const GET_SCAN_HISTORY = "/scan-history";
 export const VERIFIER_LOGIN = "/user-login";
 export const VERIFIER_RESET_PASSWORD = "/passwordReset";
+export const VERIFY_OTP = "/mobile-no-verify"
 
 export const USER_LOGOUT = "/logout";

@@ -36,6 +36,17 @@ const AuthLayout = ({ }: Props) => {
                     )
                 }}
             />
+
+            <Stack.Screen
+                name='otp-verify'
+                options={{
+                    headerBackVisible: false,
+                    headerShadowVisible: false,
+                    header: () => (
+                        <Header isBackVisible headerTitle='Verify OTP' />
+                    )
+                }}
+            />
         </Stack>
     )
 }

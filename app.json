@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "TPSDI SeQR Scan",
-    "slug": "TPSDI SeQR Scan",
+    "slug": "TPSDI_SeQR_Scan",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/images/logos/playstore.png",

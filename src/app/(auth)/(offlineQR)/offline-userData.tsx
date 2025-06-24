@@ -2,6 +2,7 @@ import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useLocalSearchParams } from "expo-router";
 import Icon from "@/libs/LucideIcon";
+import { parseKeysAndValues, parseOtherData } from "@/libs/utils";
 type Props = {};
 
 const offlineUserData = (props: Props) => {
@@ -19,20 +20,33 @@ const offlineUserData = (props: Props) => {
       });
     }
   }, [imageUri]);
+  
+  // const parsedData = React.useMemo(() => {
+  //   try {
+  //     return JSON.parse(otherData || "[]");
+  //   } catch (err) {
+  //     console.error("Failed to parse otherData:", err);
+  //     return [];
+  //   }
+  // }, [otherData]);
 
-
+  // const entries = Object.entries(parsedData).filter(
+  //   ([key]) => key !== "imageUri"
+  // );
   const parsedData = React.useMemo(() => {
-    try {
-      return JSON.parse(otherData || "[]");
-    } catch (err) {
-      console.error("Failed to parse otherData:", err);
-      return [];
-    }
+    if (!otherData) return {};
+    // Remove leading/trailing quotes if present
+    const sanitized = otherData.replace(/^"(.*)"$/, "$1");
+    return parseKeysAndValues(sanitized);
+    // if (verifiedUser) {
+    //   return verifiedUser
+    // } else {
+    //   return {}
+    // }
+
   }, [otherData]);
 
-  const entries = Object.entries(parsedData).filter(
-    ([key]) => key !== "imageUri"
-  );
+  const entries = Object?.entries(parsedData);
 
   return (
     <ScrollView className="flex-1 bg-gray-50">
@@ -50,12 +64,12 @@ const offlineUserData = (props: Props) => {
               source={{ uri: imageUri }}
               style={{
                 width: imageDimensions.width,
-                height: imageDimensions.height,
+                height: 90,
                 borderRadius: 8,
                 alignSelf: 'center',
                 marginBottom: 8,
               }}
-              resizeMode="cover"
+              resizeMode="contain"
             />
           </View>
         )}

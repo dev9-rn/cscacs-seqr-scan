@@ -10,6 +10,7 @@ import { useToast } from "react-native-toast-notifications";
 import { router } from "expo-router";
 import * as Haptics from "expo-haptics";
 import { cleanBase64 } from "@/libs/constants";
+import { parseKeysAndValues } from "@/libs/utils";
 type Props = {};
 
 const scanQR = (props: Props) => {
@@ -22,13 +23,20 @@ const scanQR = (props: Props) => {
 
   useEffect(() => {
     if (otherData && imageUri) {
-      router.replace({
-        pathname: "/(auth)/(offlineQR)/offline-userData",
-        params: {
-          imageUri,
-          otherData: JSON.stringify(otherData),
-        },
-      });
+      const sanitized = JSON.stringify(otherData).replace(/^"(.*)"$/, "$1");
+      const verifiedUser = parseKeysAndValues(sanitized);
+      if (verifiedUser) {
+        router.replace({
+          pathname: "/(auth)/(offlineQR)/offline-userData",
+          params: {
+            imageUri,
+            otherData: JSON.stringify(otherData),
+          },
+        });
+      }else{
+        router.back()
+      }
+
     }
   }, [otherData, imageUri]);
 
@@ -70,9 +78,6 @@ const scanQR = (props: Props) => {
         if (cleanedData) {
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
           const decryptedData = await decryptAES(cleanedData);
-          console.log("Decrypted data:", decryptedData);
-          // const decryptedData = await decryptAES(barcodeData?.data);
-          // console.log("Decrypted data:", decryptedData);
           if (!decryptedData) {
             throw new Error("Decryption failed: Empty or invalid result");
           }

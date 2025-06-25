@@ -5,7 +5,7 @@ import { Text } from "@/components/ui/text";
 import { router } from "expo-router";
 import { Image, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import NetInfo from "@react-native-community/netinfo";
+// import NetInfo from "@react-native-community/netinfo";
 import { useToast } from "react-native-toast-notifications";
 import { TITLES } from "@/libs/constants";
 
@@ -13,18 +13,18 @@ type Props = {};
 
 const WelcomeScreen = ({}: Props) => {
   const toast = useToast();
-  const [isConnected, setIsConnected] = useState<boolean | null>(null);
+  // const [isConnected, setIsConnected] = useState<boolean | null>(null);
 
   const handleLoginWithUserType = ({ login_type }: { login_type: string }) => {
-    if (!isConnected) {
-      toast.show("No internet connection. Please connect to the internet.", {
-        placement: "top",
-        data: { type: "danger"},
-        duration: 2000,
-      });
-      toast.hideAll();
-      return;
-    }
+    // if (!isConnected) {
+    //   toast.show("No internet connection. Please connect to the internet.", {
+    //     placement: "top",
+    //     data: { type: "danger"},
+    //     duration: 2000,
+    //   });
+    //   toast.hideAll();
+    //   return;
+    // }
     router.navigate({
       pathname: "/login",
       params: {
@@ -33,21 +33,21 @@ const WelcomeScreen = ({}: Props) => {
     });
   };
 
-  const handleScanQR = () => {
-    router.navigate({
-      pathname: "/(auth)/(offlineQR)/scanQR",
-    });
-  };
+  // const handleScanQR = () => {
+  //   router.navigate({
+  //     pathname: "/(auth)/(offlineQR)/scanQR",
+  //   });
+  // };
 
-  useEffect(() => {
-    const unsubscribe = NetInfo.addEventListener((state) => {
-      console.log("Connection type:", state.type);
-      console.log("Is connected?", state.isConnected);
-      setIsConnected(state.isConnected);
-    });
+  // useEffect(() => {
+  //   const unsubscribe = NetInfo.addEventListener((state) => {
+  //     console.log("Connection type:", state.type);
+  //     console.log("Is connected?", state.isConnected);
+  //     setIsConnected(state.isConnected);
+  //   });
 
-    return () => unsubscribe(); // Clean up on unmount
-  }, []);
+  //   return () => unsubscribe(); // Clean up on unmount
+  // }, []);
 
   // if (!isConnected && isConnected !== null) {
   //   toast.show("No internet connection. Please connect to the internet.", {
@@ -98,11 +98,11 @@ const WelcomeScreen = ({}: Props) => {
             <Text>Login as institute</Text>
           </Button>
 
-          {!isConnected && isConnected !== null && (
+          {/* {!isConnected && isConnected !== null && (
             <Button onPress={handleScanQR} className="bg-slate-700">
               <Text className="text-white">Scan QR to Verify</Text>
             </Button>
-          )}
+          )} */}
         </View>
       </View>
     </SafeAreaView>

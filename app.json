@@ -10,7 +10,7 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "org.dy-patil-institute-akurdi-pune",
+      "bundleIdentifier": "com.dypatilpgdm.seqrdoc",
       "entitlements": {
         "com.apple.developer.networking.wifi-info": true
       }
@@ -20,14 +20,14 @@
         "foregroundImage": "./src/assets/images/logos/adaptive-icon.png",
         "backgroundColor": "#000"
       },
-      "package": "com.dy_patil_institute_akurdi_pune",
+      "package": "com.dypatilpgdm.seqrdoc",
       "permissions": [
         "android.permission.CAMERA"
       ],
       "keystore": {
-        "keystorePath": "credentials/android/keystore.jks",
-        "keystorePassword": "123456",
-        "keyAlias": "my-key-alias"
+        "keystorePath": "release.keystore",
+        "keystorePassword": "KEYSTORE_PASSWORD",
+        "keyAlias": "KEY_ALIAS"
       }
     },
     "web": {

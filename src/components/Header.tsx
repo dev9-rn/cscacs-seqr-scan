@@ -7,6 +7,7 @@ import MenuPopover from './MenuPopover'
 import { useRoute } from '@react-navigation/native'
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import { TITLES } from '@/libs/constants'
+import MenuModal from './MenuModel'
 
 type Props = {
     isBackVisible?: boolean;
@@ -25,7 +26,7 @@ const Header = ({ isBackVisible = false, headerTitle, isLogoVisible }: Props) =>
             {isLogoVisible && !headerTitle && (
                 <Image
                     className='size-16'
-                    source={require("@/assets/images/logos/dypatilLogo.png")}
+                    source={require("@/assets/images/logos/playstore.jpg")}
                     resizeMode='contain'
                 />
             )}
@@ -63,7 +64,7 @@ const Header = ({ isBackVisible = false, headerTitle, isLogoVisible }: Props) =>
                 <View className='flex-row items-center gap-2'>
                     <Image
                         className='size-16'
-                        source={require("@/assets/images/logos/dypatilLogo.png")}
+                        source={require("@/assets/images/logos/playstore.jpg")}
                         resizeMode='contain'
                     />
                     <View>
@@ -76,7 +77,7 @@ const Header = ({ isBackVisible = false, headerTitle, isLogoVisible }: Props) =>
 
             {route.name === "home" && (
                 <View className='items-end'>
-                    <MenuPopover />
+                    <MenuModal />
                 </View>
             )}
         </View>

@@ -19,6 +19,7 @@ import useAuth from "@/hooks/useAuth";
 import useUser from "@/hooks/useUser";
 import ForgotPasswordDialog from "@/components/ForgotPasswordDialog";
 import { useToast } from "react-native-toast-notifications";
+import ForgotPasswordModal from "@/components/ForgotPasswordModal";
 
 type Props = {};
 
@@ -39,6 +40,7 @@ const LoginScreen = ({ }: Props) => {
 
   const [isUserNameFocused, setIsUserNameFocused] = useState<boolean>(false);
   const [isPasswordFocused, setIsPasswordFocused] = useState<boolean>(false);
+  const [forgotVisible, setForgotVisible] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const toast = useToast();
 
@@ -106,7 +108,7 @@ const LoginScreen = ({ }: Props) => {
       setLoading(false);
     }
   };
-  
+
   return (
     <View className="flex-1 bg-white">
       <View className="p-4 gap-8">
@@ -131,8 +133,8 @@ const LoginScreen = ({ }: Props) => {
                 render={({ field: { onBlur, onChange, value } }) => (
                   <View
                     className={`border rounded-lg ${isUserNameFocused
-                        ? "border-primary border-2"
-                        : "border-input"
+                      ? "border-primary border-2"
+                      : "border-input"
                       } ${errors.userName && "border-red-500"}`}
                   >
                     <Input
@@ -170,8 +172,8 @@ const LoginScreen = ({ }: Props) => {
                 render={({ field: { onChange, onBlur, value } }) => (
                   <View
                     className={`flex-row items-center border rounded-lg ${isPasswordFocused
-                        ? "border-primary border-2"
-                        : "border-input"
+                      ? "border-primary border-2"
+                      : "border-input"
                       } ${errors.userPass && "border-red-500"}`}
                   >
                     <Input
@@ -223,20 +225,28 @@ const LoginScreen = ({ }: Props) => {
                   className="p-0"
                   onPress={() => router.navigate("/sign-up")}
                 >
-                  <Text className="text-primary">Sign Up</Text>
+                  <Text className="text-primary" style={{ color: '#eeb114' }}>Sign Up</Text>
                 </Button>
               </View>
 
-              <ForgotPasswordDialog
+              {/* <ForgotPasswordDialog
                 isForgotPasswordVisible={isForgotPasswordVisible}
                 setIsForgotPasswordVisible={setIsForgotPasswordVisible}
+              /> */}
+              <Button variant="ghost" onPress={() => setForgotVisible(true)}>
+                <Text className="text-destructive">Forgot Password</Text>
+              </Button>
+
+              <ForgotPasswordModal
+                visible={forgotVisible}
+                onClose={() => setForgotVisible(false)}
               />
             </View>
           )}
         </View>
 
         {/* Submit button */}
-        <Button onPress={handleSubmit(handleUserLogin)} disabled={loading}>
+        <Button onPress={handleSubmit(handleUserLogin)} style={{ backgroundColor: '#eeb114' }} disabled={loading}>
           {loading ? <ActivityIndicator size={'small'} /> : <Text>Login</Text>}
         </Button>
       </View>

@@ -69,7 +69,7 @@ const WelcomeScreen = ({ }: Props) => {
           <View>
             <Image
               className="size-72"
-              source={require("@/assets/images/logos/playstore.png")}
+              source={require("@/assets/images/logos/playstore.jpg")}
               resizeMode="cover"
             />
           </View>

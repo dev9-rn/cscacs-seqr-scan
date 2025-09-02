@@ -1,16 +1,16 @@
 {
   "expo": {
-    "name": "DY Patil PGDM Institute SeQR Scan",
-    "slug": "DYPatilPGDMInstitute_SeQR_Scan",
+    "name": "Bank of Abyssinia SeQR Scan",
+    "slug": "BankofAbyssinia_SeQR_Scan",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/assets/images/logos/DYPATIL_INSTITUTE.png",
+    "icon": "./src/assets/images/logos/appstore.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.dypatilpgdm.seqrdoc",
+      "bundleIdentifier": "com.bankofabyssinia.seqrdoc",
       "entitlements": {
         "com.apple.developer.networking.wifi-info": true
       }
@@ -18,17 +18,16 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/images/logos/adaptive-icon.png",
-        "backgroundColor": "#000"
+        "backgroundColor": "#000000"
       },
-      "package": "com.dypatilpgdm.seqrdoc",
+      "package": "com.bankofabyssinia.seqrdoc",
       "permissions": [
-        "android.permission.CAMERA"
-      ],
-      "keystore": {
-        "keystorePath": "release.keystore",
-        "keystorePassword": "KEYSTORE_PASSWORD",
-        "keyAlias": "KEY_ALIAS"
-      }
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.DOWNLOAD_WITHOUT_NOTIFICATION",
+        "android.permission.ACCESS_NETWORK_STATE"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -70,7 +69,9 @@
           },
           "ios": {}
         }
-      ]
+      ],
+      "expo-font",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true
@@ -80,8 +81,9 @@
         "origin": false
       },
       "eas": {
-        "projectId": "21110350-ed32-4aef-9182-cbcae8ce0c73"
+        "projectId": "5a490ecc-338c-442e-9deb-58af65da5d8b"
       }
-    }
+    },
+    "owner": "dev17-hemant"
   }
 }

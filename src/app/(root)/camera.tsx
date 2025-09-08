@@ -160,11 +160,11 @@ const CameraScreen = ({ }: Props) => {
   if (!permission.granted) {
     return (
       <SafeAreaView className="flex-1 items-center justify-center bg-stone-900">
-        <Text className="text-white">
-          We need your permission to show the camera
+        <Text className="text-white text-center">
+          We need to access your camera to scan your document's / certificate's QR Code
         </Text>
         <Button onPress={requestPermission}>
-          <Text>Grant permission</Text>
+          <Text>Continue</Text>
         </Button>
       </SafeAreaView>
     );

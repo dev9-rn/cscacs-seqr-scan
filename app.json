@@ -48,8 +48,7 @@
       [
         "expo-camera",
         {
-          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera",
-          "cameraUsageDescription": "This app requires camera access to scan QR codes",
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera to scan QR Codes to see the available college document",
           "recordAudioAndroid": false
         }
       ],

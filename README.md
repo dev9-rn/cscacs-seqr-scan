@@ -1,4 +1,4 @@
-# Bank of Abyssinia SeQR Scan
+# Alard SeQR Scan
 
 A React Native app for secure QR code scanning and document management, built with Expo Router.
 

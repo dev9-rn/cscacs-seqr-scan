@@ -7,6 +7,7 @@ import { KeyboardProvider } from 'react-native-keyboard-controller';
 
 import "@/app/globals.css";
 import ToastNotification from "@/components/ToastNotification";
+import { Appearance, StatusBar } from "react-native";
 // ...existing code...
 
 if (__DEV__) {
@@ -14,31 +15,38 @@ if (__DEV__) {
 }
 
 export default function RootLayout() {
-       return (
-	       <UserProvider>
-		       <AuthProvider>
-			       <KeyboardProvider>
-				       <ToastProvider
-					       offsetBottom={40}
-					       swipeEnabled={true}
-					       renderToast={(props) => <ToastNotification toastData={props} />}
-				       >
-					       <Stack
-						       screenOptions={{
-							       headerShown: false
-						       }}
-					       >
-						       <Stack.Screen
-							       name="(root)"
-						       />
-						       <Stack.Screen
-							       name="(auth)"
-						       />
-					       </Stack>
-				       </ToastProvider>
-			       </KeyboardProvider>
-		       </AuthProvider>
-	       </UserProvider >
-	    //    <PortalHost />
-       );
+	const colorScheme = Appearance.getColorScheme();
+	return (
+		<>
+			<StatusBar
+				barStyle={colorScheme === "dark" ? "light-content" : "dark-content"}
+				backgroundColor={colorScheme === "dark" ? "#fff" : "#2c2c2c"}
+			/>
+			<UserProvider>
+				<AuthProvider>
+					<KeyboardProvider>
+						<ToastProvider
+							offsetBottom={40}
+							swipeEnabled={true}
+							renderToast={(props) => <ToastNotification toastData={props} />}
+						>
+							<Stack
+								screenOptions={{
+									headerShown: false
+								}}
+							>
+								<Stack.Screen
+									name="(root)"
+								/>
+								<Stack.Screen
+									name="(auth)"
+								/>
+							</Stack>
+						</ToastProvider>
+					</KeyboardProvider>
+				</AuthProvider>
+			</UserProvider >
+		</>
+		//    <PortalHost />
+	);
 }

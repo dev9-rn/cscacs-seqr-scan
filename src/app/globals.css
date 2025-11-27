@@ -34,33 +34,33 @@
   }
 
   .dark:root {
-    --background: 267 41% 10%;
-    --foreground: 0 0% 98%;
+     --background: 0 0% 100%;
+    --foreground: 267 41% 24%;
 
-    --card: 267 41% 15%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 267 41% 24%;
 
-    --popover: 267 41% 15%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 267 41% 24%;
 
-    --primary: 44 68% 49%;               /* golden yellow in dark mode */
-    --primary-foreground: 267 41% 24%;
+    --primary: 267 41% 24%;              /* deep purple */
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 267 41% 24%;
+    --secondary: 44 68% 49%;             /* golden yellow */
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 267 41% 20%;
-    --muted-foreground: 0 0% 80%;
+    --muted: 44 100% 96%;                /* soft gold background */
+    --muted-foreground: 0 12% 22%;       /* dark gray text */
 
-    --accent: 44 68% 49%;
+    --accent: 44 68% 49%;                /* golden accent */
     --accent-foreground: 267 41% 24%;
 
-    --destructive: 0 75% 45%;
+    --destructive: 0 75% 45%;            /* red if needed */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 44 68% 49%;
-    --input: 267 41% 24%;
-    --ring: 44 68% 49%;
+    --border: 267 41% 24%;
+    --input: 44 68% 95%;
+    --ring: 267 41% 24%;
   }
 }
 

@@ -5,45 +5,45 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 267 41% 24%;
+    --foreground: 345 74% 57%;
 
     --card: 0 0% 100%;
-    --card-foreground: 267 41% 24%;
+    --card-foreground: 345 74% 57%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 267 41% 24%;
+    --popover-foreground: 345 74% 57%;
 
-    --primary: 267 41% 24%;              /* deep purple */
+    --primary: 345 74% 57%;              /* deep purple */
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 44 68% 49%;             /* golden yellow */
+    --secondary: 11 68% 49%;             /* golden yellow */
     --secondary-foreground: 0 0% 100%;
 
     --muted: 44 100% 96%;                /* soft gold background */
     --muted-foreground: 0 12% 22%;       /* dark gray text */
 
     --accent: 44 68% 49%;                /* golden accent */
-    --accent-foreground: 267 41% 24%;
+    --accent-foreground: 345 74% 57%;
 
     --destructive: 0 75% 45%;            /* red if needed */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 267 41% 24%;
+    --border: 345 74% 57%;
     --input: 44 68% 95%;
-    --ring: 267 41% 24%;
+    --ring: 345 74% 57%;
   }
 
   .dark:root {
      --background: 0 0% 100%;
-    --foreground: 267 41% 24%;
+    --foreground: 345 74% 57%;
 
     --card: 0 0% 100%;
-    --card-foreground: 267 41% 24%;
+    --card-foreground: 345 74% 57%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 267 41% 24%;
+    --popover-foreground: 345 74% 57%;
 
-    --primary: 267 41% 24%;              /* deep purple */
+    --primary: 345 74% 57%;              /* deep purple */
     --primary-foreground: 0 0% 98%;
 
     --secondary: 44 68% 49%;             /* golden yellow */
@@ -53,14 +53,14 @@
     --muted-foreground: 0 12% 22%;       /* dark gray text */
 
     --accent: 44 68% 49%;                /* golden accent */
-    --accent-foreground: 267 41% 24%;
+    --accent-foreground: 345 74% 57%;
 
     --destructive: 0 75% 45%;            /* red if needed */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 267 41% 24%;
+    --border: 345 74% 57%;
     --input: 44 68% 95%;
-    --ring: 267 41% 24%;
+    --ring: 345 74% 57%;
   }
 }
 

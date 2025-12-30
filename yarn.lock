@@ -3432,11 +3432,12 @@ __metadata:
     clsx: ^2.1.1
     crypto-js: ^4.2.0
     expo: ^54.0.0
+    expo-application: ^7.0.8
     expo-blur: ~15.0.7
     expo-build-properties: ~1.0.9
     expo-camera: ~17.0.9
     expo-constants: ~18.0.10
-    expo-dev-client: ~6.0.18
+    expo-dev-client: ~6.0.20
     expo-font: ~14.0.9
     expo-haptics: ~15.0.7
     expo-image: ~3.0.10
@@ -5205,6 +5206,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-application@npm:^7.0.8":
+  version: 7.0.8
+  resolution: "expo-application@npm:7.0.8"
+  peerDependencies:
+    expo: "*"
+  checksum: 15b6db7b4854b50a396e54e143b57187711788aa45e1719e4b4b4c5b9d29b7f97efe2d1256ced47d8c2ad95fe88a367b1f2be27e06a8dd17b38251b403fb8585
+  languageName: node
+  linkType: hard
+
 "expo-asset@npm:~12.0.12":
   version: 12.0.12
   resolution: "expo-asset@npm:12.0.12"
@@ -5272,7 +5282,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-dev-client@npm:~6.0.18":
+"expo-dev-client@npm:~6.0.20":
   version: 6.0.20
   resolution: "expo-dev-client@npm:6.0.20"
   dependencies:

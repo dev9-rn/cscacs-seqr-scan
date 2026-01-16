@@ -116,12 +116,13 @@ export default function RootLayout() {
             // unsubscribe
         };
     }, []);
+    
 
-    useEffect(() => {
-        if (appState === 'active') {
-            getApplicationVersion();
-        }
-    }, [appState]);
+    // useEffect(() => {
+    //     if (appState === 'active') {
+    //         getApplicationVersion();
+    //     }
+    // }, [appState]);
 
     return (
         <>

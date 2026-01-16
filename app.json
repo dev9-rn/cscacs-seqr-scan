@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "SJCIT SeQR Scan",
-    "slug": "sjcit-seqr-scan",
-    "version": "1.0.1",
+    "name": "Cscacs SeQR Scan",
+    "slug": "cscacs-seqr-scan",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/images/logos/icon.png",
     "scheme": "myapp",
@@ -10,7 +10,7 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.anonymous.sjcitseqrscan",
+      "bundleIdentifier": "com.anonymous.cscacsseqrscan",
       "entitlements": {
         "com.apple.developer.networking.wifi-info": true
       }
@@ -21,7 +21,7 @@
         "foregroundImage": "./src/assets/images/logos/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.anonymous.sjcitseqrscan",
+      "package": "com.anonymous.cscacsseqrscan",
       "permissions": [
         "android.permission.CAMERA",
         "android.permission.READ_EXTERNAL_STORAGE",
@@ -29,7 +29,7 @@
         "android.permission.DOWNLOAD_WITHOUT_NOTIFICATION",
         "android.permission.ACCESS_NETWORK_STATE"
       ],
-      "versionCode": 10
+      "versionCode": 2
     },
     "web": {
       "bundler": "metro",
@@ -82,7 +82,7 @@
         "origin": false
       },
       "eas": {
-        "projectId": "ffc6dc4a-96f9-4f40-8f8a-c34d70229af6"
+        "projectId": "3eadb55d-53d5-4286-adb1-fe1c759b4398"
       }
     }
   }

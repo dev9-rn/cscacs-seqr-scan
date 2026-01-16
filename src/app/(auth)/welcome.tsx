@@ -70,7 +70,7 @@ const WelcomeScreen = ({ }: Props) => {
             <Image
               className="size-72"
               source={require("@/assets/images/logos/icon.png")}
-              resizeMode="cover"
+              resizeMode="contain"
             />
           </View>
 

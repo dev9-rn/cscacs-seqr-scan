@@ -5,15 +5,15 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 345 74% 57%;
+    --foreground: 26 94% 55%;
 
     --card: 0 0% 100%;
-    --card-foreground: 345 74% 57%;
+    --card-foreground: 26 94% 55%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 345 74% 57%;
+    --popover-foreground: 26 94% 55%;
 
-    --primary: 345 74% 57%;              /* deep purple */
+    --primary: 26 94% 55%;             /* deep purple */
     --primary-foreground: 0 0% 98%;
 
     --secondary: 11 68% 49%;             /* golden yellow */
@@ -23,27 +23,27 @@
     --muted-foreground: 0 12% 22%;       /* dark gray text */
 
     --accent: 44 68% 49%;                /* golden accent */
-    --accent-foreground: 345 74% 57%;
+    --accent-foreground: 26 94% 55%;
 
     --destructive: 0 75% 45%;            /* red if needed */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 345 74% 57%;
+    --border: 26 94% 55%;
     --input: 44 68% 95%;
-    --ring: 345 74% 57%;
+    --ring: 26 94% 55%;
   }
 
   .dark:root {
      --background: 0 0% 100%;
-    --foreground: 345 74% 57%;
+    --foreground: 26 94% 55%;
 
     --card: 0 0% 100%;
-    --card-foreground: 345 74% 57%;
+    --card-foreground: 26 94% 55%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 345 74% 57%;
+    --popover-foreground: 26 94% 55%;
 
-    --primary: 345 74% 57%;              /* deep purple */
+    --primary: 26 94% 55%;              /* deep purple */
     --primary-foreground: 0 0% 98%;
 
     --secondary: 44 68% 49%;             /* golden yellow */
@@ -53,14 +53,14 @@
     --muted-foreground: 0 12% 22%;       /* dark gray text */
 
     --accent: 44 68% 49%;                /* golden accent */
-    --accent-foreground: 345 74% 57%;
+    --accent-foreground: 26 94% 55%;
 
     --destructive: 0 75% 45%;            /* red if needed */
     --destructive-foreground: 0 0% 98%;
 
-    --border: 345 74% 57%;
+    --border: 26 94% 55%;
     --input: 44 68% 95%;
-    --ring: 345 74% 57%;
+    --ring: 26 94% 55%;
   }
 }
 
